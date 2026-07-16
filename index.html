@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edoardo &amp; Lucia — Ci Sposiamo</title>
+<title>Lucia &amp; Edoardo — Ci Sposiamo</title>
 <meta name="description" content="Il sito del nostro matrimonio: data, location, programma e conferma presenza.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,61 +81,21 @@
 
   /* ---------- HERO ---------- */
   .hero{
-    min-height:100vh; display:flex; flex-direction:column; align-items:center;
-    justify-content:flex-start; text-align:center; padding:3rem 1.6rem 0;
-    position:relative; overflow:hidden;
-    background: linear-gradient(to bottom, #EBE0C4 0%, #DFCC A4 50%, var(--kraft) 100%);
-    background: linear-gradient(to bottom, #EBE0C4 0%, #DFCCA4 50%, var(--kraft) 100%);
-  }
-  .hero-content{ position:relative; z-index:1; }
-  .hero .script-title{ font-size:clamp(2.8rem, 10vw, 4.6rem); }
-
-  .names-block{ margin-top:0.6rem; }
-  .hero .names{
-    font-weight:800;
-    font-size:clamp(2.1rem, 6.2vw, 3.3rem);
-    letter-spacing:0.14em;
-    line-height:1.3;
-  }
-  .e-connector{
-    display:flex; align-items:center; justify-content:center; gap:0.7rem;
-    margin:0.3rem 0;
-  }
-  .e-connector svg{ width:34px; height:16px; opacity:0.85; }
-  .e-connector span{
-    font-family:'Playfair Display', serif; font-style:italic; font-weight:500;
-    font-size:1.3rem; color:var(--sage-deep);
-  }
-
-  .hero .when{ margin-top:1.5rem; font-family:'Playfair Display', serif; font-weight:600; font-size:1.15rem; letter-spacing:0.16em; }
-  .hero .where{ margin-top:0.4rem; font-size:1rem; color:var(--ink-soft); letter-spacing:0.12em; }
-
-  /* full-bleed photo band, fading softly into the paper like an old postcard */
-  .photo-frame{
+    display:flex; flex-direction:column; align-items:center;
+    justify-content:center; text-align:center; padding:3rem 1.2rem;
     position:relative;
-    margin-top:2.2rem;
+  }
+  .hero-photo-wrap{
     width:100%;
     max-width:640px;
-    aspect-ratio:3/4.4;
+    aspect-ratio:1060/1484;
     overflow:hidden;
-    background:linear-gradient(160deg, #cfc0a0, #b9a97f);
+    box-shadow:0 10px 30px rgba(59,46,32,0.28);
+    border:1px solid var(--gold);
   }
-  .photo-frame::before{
-    content:"";
-    position:absolute; top:0; left:0; right:0; height:38%;
-    background:linear-gradient(to bottom, var(--kraft) 0%, rgba(228,212,176,0) 100%);
-    z-index:2;
+  .hero-photo-wrap img{
+    width:100%; height:100%; object-fit:cover; display:block;
   }
-  .photo-frame .placeholder-text{
-    position:absolute; inset:0; z-index:1;
-    display:flex; align-items:center; justify-content:center;
-    text-align:center; padding:2rem;
-    color:#4a3b28; font-size:0.95rem; line-height:1.5;
-  }
-  /* Sostituisci .placeholder-text con:
-     <img src="foto-copertina.jpg" alt="Edoardo e Lucia" style="width:100%;height:100%;object-fit:cover;"> */
-
-  .hero-spacer{ height:2.5rem; }
 
   /* ---------- COUNTDOWN ---------- */
   .countdown-wrap{ text-align:center; }
@@ -206,57 +166,9 @@
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
-  <div class="frame-border"></div>
-
-  <svg class="corner tl" viewBox="0 0 150 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g fill="none" stroke="#6E7A52" stroke-width="2.2" stroke-linecap="round">
-      <path d="M20,220 C30,150 45,90 70,20"/>
-      <path d="M25,190 q20,-10 25,-30"/>
-      <path d="M35,150 q22,-6 30,-24"/>
-      <path d="M45,110 q18,-8 22,-24"/>
-      <path d="M55,70 q14,-10 16,-22"/>
-    </g>
-    <g fill="none" stroke="#9C7A32" stroke-width="1.6" stroke-linecap="round">
-      <path d="M15,215 C22,145 40,85 68,18"/>
-    </g>
-    <circle cx="20" cy="205" r="10" fill="none" stroke="#A9673A" stroke-width="2"/>
-    <path d="M10,205 q10,15 20,0 q10,15 -10,20 q-20,-5 -10,-20" fill="#A9673A" opacity="0.55"/>
-  </svg>
-
-  <svg class="corner br" viewBox="0 0 150 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g fill="none" stroke="#6E7A52" stroke-width="2.2" stroke-linecap="round">
-      <path d="M20,220 C30,150 45,90 70,20"/>
-      <path d="M25,190 q20,-10 25,-30"/>
-      <path d="M35,150 q22,-6 30,-24"/>
-    </g>
-    <g fill="none" stroke="#9C7A32" stroke-width="1.6" stroke-linecap="round">
-      <path d="M15,215 C22,145 40,85 68,18"/>
-    </g>
-    <circle cx="20" cy="205" r="10" fill="none" stroke="#A9673A" stroke-width="2"/>
-  </svg>
-
-  <div class="hero-content">
-    <span class="eyebrow script-title">Save the Date</span>
-    <div class="heart-divider"><span class="line"></span><span class="heart">&#10084;</span><span class="line"></span></div>
-
-    <div class="names-block">
-      <h1 class="names caps">Edoardo</h1>
-      <div class="e-connector">
-        <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
-        <span>e</span>
-        <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
-      </div>
-      <h1 class="names caps">Lucia</h1>
-    </div>
-
-    <p class="when caps">2 Ottobre 2026 &nbsp;·&nbsp; Ore 11:00</p>
-    <p class="where caps">Chiesa di San Michele<br>(Oreno di Vimercate)</p>
+  <div class="hero-photo-wrap">
+    <img src="foto-copertina.jpg" alt="Lucia e Edoardo, Save the Date, 2 ottobre 2026, Chiesa di San Michele, Oreno di Vimercate">
   </div>
-
-  <div class="photo-frame">
-    <div class="placeholder-text">La vostra foto qui<br><span style="font-size:0.8rem;">(sostituisci con &lt;img&gt;, vedi commento nel codice)</span></div>
-  </div>
-  <div class="hero-spacer"></div>
 </header>
 
 <!-- ===================== COUNTDOWN ===================== -->
@@ -374,13 +286,13 @@
   <div class="registry-card">
     <p>La vostra presenza è il regalo più grande. Se però desiderate contribuire al nostro viaggio di nozze,
     trovate qui le coordinate:</p>
-    <p><strong>IBAN:</strong> vi verrà comunicato a breve<br>
-    <strong>Intestato a:</strong> Edoardo Cantoni</p>
+    <p><strong>IBAN:</strong> IT82U0306909441100000010010<br>
+    <strong>Intestato a:</strong> Lucia Telmon</p>
   </div>
 </section>
 
 <footer>
-  <span class="script">Edoardo &amp; Lucia</span><br>
+  <span class="script">Lucia &amp; Edoardo</span><br>
   2 Ottobre 2026
 </footer>
 
@@ -445,4 +357,3 @@
 
 </body>
 </html>
-
