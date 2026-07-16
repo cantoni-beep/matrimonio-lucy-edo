@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edoardo &amp; Lucia — Ci Sposiamo</title>
+<meta name="description" content="Il sito del nostro matrimonio: data, location, programma e conferma presenza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --kraft:#E4D4B0;
+    --kraft-deep:#CBB68C;
+    --paper:#F1E6C9;
+    --ink:#3B2E20;
+    --ink-soft:#6B5A41;
+    --gold:#9C7A32;
+    --sage:#6E7A52;
+    --sage-deep:#586445;
+    --rust:#A9673A;
+    --mist:#8FA1A6;
+    --mist-deep:#657679;
+    --max-w: 940px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--kraft);
+    background-image:
+      radial-gradient(ellipse at 8% 8%, rgba(0,0,0,0.045), transparent 42%),
+      radial-gradient(ellipse at 92% 92%, rgba(0,0,0,0.045), transparent 42%),
+      radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06), transparent 60%);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:1.1rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{ font-family:'Playfair Display', serif; font-weight:700; margin:0; color:var(--ink); }
+
+  a{color:var(--rust);}
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+    outline:3px solid var(--sage); outline-offset:3px;
+  }
+
+  .script{ font-family:'Alex Brush', cursive; color:var(--ink); line-height:1; }
+  .eyebrow{
+    font-family:'Alex Brush', cursive; font-size:2.1rem; color:var(--rust);
+    display:block; margin-bottom:0.1rem;
+  }
+  .caps{ text-transform:uppercase; letter-spacing:0.18em; }
+
+  section{ max-width:var(--max-w); margin:0 auto; padding:4.5rem 1.5rem; position:relative; }
+
+  .mountains-divider{ width:100%; max-width:340px; margin:1.4rem auto 0; display:block; opacity:0.9; }
+
+  .heart-divider{
+    display:flex; align-items:center; justify-content:center; gap:0.8rem;
+    margin:0.9rem 0; color:var(--gold);
+  }
+  .heart-divider .line{ height:1px; width:70px; background:var(--gold); }
+  .heart-divider .heart{ font-size:1.1rem; }
+
+  .corner{ position:absolute; width:150px; height:230px; pointer-events:none; opacity:0.92; z-index:2; }
+  .corner.tl{ top:0; left:0; }
+  .corner.br{ bottom:0; right:0; transform:rotate(180deg); }
+
+  .frame-border{ position:absolute; inset:20px; border:1px solid var(--gold); pointer-events:none; z-index:3; }
+  .frame-border::before{
+    content:""; position:absolute; inset:6px; border:1px solid var(--gold); opacity:0.5;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column; align-items:center;
+    justify-content:flex-start; text-align:center; padding:3rem 1.6rem 0;
+    position:relative; overflow:hidden;
+    background: linear-gradient(to bottom, #EBE0C4 0%, #DFCC A4 50%, var(--kraft) 100%);
+    background: linear-gradient(to bottom, #EBE0C4 0%, #DFCCA4 50%, var(--kraft) 100%);
+  }
+  .hero-content{ position:relative; z-index:1; }
+  .hero .script-title{ font-size:clamp(2.8rem, 10vw, 4.6rem); }
+
+  .names-block{ margin-top:0.6rem; }
+  .hero .names{
+    font-weight:800;
+    font-size:clamp(2.1rem, 6.2vw, 3.3rem);
+    letter-spacing:0.14em;
+    line-height:1.3;
+  }
+  .e-connector{
+    display:flex; align-items:center; justify-content:center; gap:0.7rem;
+    margin:0.3rem 0;
+  }
+  .e-connector svg{ width:34px; height:16px; opacity:0.85; }
+  .e-connector span{
+    font-family:'Playfair Display', serif; font-style:italic; font-weight:500;
+    font-size:1.3rem; color:var(--sage-deep);
+  }
+
+  .hero .when{ margin-top:1.5rem; font-family:'Playfair Display', serif; font-weight:600; font-size:1.15rem; letter-spacing:0.16em; }
+  .hero .where{ margin-top:0.4rem; font-size:1rem; color:var(--ink-soft); letter-spacing:0.12em; }
+
+  /* full-bleed photo band, fading softly into the paper like an old postcard */
+  .photo-frame{
+    position:relative;
+    margin-top:2.2rem;
+    width:100%;
+    max-width:640px;
+    aspect-ratio:3/4.4;
+    overflow:hidden;
+    background:linear-gradient(160deg, #cfc0a0, #b9a97f);
+  }
+  .photo-frame::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:38%;
+    background:linear-gradient(to bottom, var(--kraft) 0%, rgba(228,212,176,0) 100%);
+    z-index:2;
+  }
+  .photo-frame .placeholder-text{
+    position:absolute; inset:0; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:2rem;
+    color:#4a3b28; font-size:0.95rem; line-height:1.5;
+  }
+  /* Sostituisci .placeholder-text con:
+     <img src="foto-copertina.jpg" alt="Edoardo e Lucia" style="width:100%;height:100%;object-fit:cover;"> */
+
+  .hero-spacer{ height:2.5rem; }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown-wrap{ text-align:center; }
+  .countdown{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.8rem; }
+  .countdown .unit{ background:var(--paper); border:1px solid var(--kraft-deep); padding:1.1rem 1.4rem; min-width:88px; }
+  .countdown .num{ font-family:'Playfair Display', serif; font-size:2.1rem; color:var(--rust); display:block; }
+  .countdown .label{ font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); }
+
+  /* ---------- LOCATION ---------- */
+  .location-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2rem; }
+  @media (max-width:640px){ .location-grid{ grid-template-columns:1fr; } }
+  .loc-card{ background:var(--paper); border:1px solid var(--kraft-deep); padding:1.8rem; }
+  .loc-card h3{ font-size:1.3rem; margin-bottom:0.5rem; }
+  .loc-card p{ color:var(--ink-soft); margin:0.2rem 0 1rem; }
+  .btn{
+    display:inline-block; font-family:'EB Garamond', serif; font-weight:500;
+    letter-spacing:0.05em; text-decoration:none; padding:0.65rem 1.4rem;
+    border:1px solid var(--ink); color:var(--ink); background:transparent;
+    transition:background 0.25s ease, color 0.25s ease; cursor:pointer; font-size:0.98rem;
+  }
+  .btn:hover{ background:var(--ink); color:var(--paper); }
+  .btn.primary{ background:var(--sage-deep); border-color:var(--sage-deep); color:var(--paper); }
+  .btn.primary:hover{ background:var(--ink); border-color:var(--ink); }
+
+  /* ---------- PROGRAM (timeline) ---------- */
+  .timeline{ margin-top:2.5rem; position:relative; padding-left:2.2rem; border-left:2px dotted var(--gold); }
+  .timeline .item{ position:relative; padding-bottom:2.2rem; }
+  .timeline .item:last-child{ padding-bottom:0; }
+  .timeline .item::before{
+    content:""; position:absolute; left:-2.65rem; top:0.25rem;
+    width:10px;height:10px; border-radius:50%; background:var(--rust);
+  }
+  .timeline .time{ font-family:'Playfair Display', serif; color:var(--sage-deep); font-size:1.15rem; display:block; margin-bottom:0.2rem; }
+  .timeline .what{ color:var(--ink-soft); }
+
+  /* ---------- RSVP ---------- */
+  .rsvp-form{ margin-top:2rem; display:grid; gap:1.1rem; }
+  .rsvp-form .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; }
+  @media (max-width:520px){ .rsvp-form .row-2{ grid-template-columns:1fr; } }
+  .rsvp-form label{ display:block; font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:0.35rem; }
+  .rsvp-form input, .rsvp-form select, .rsvp-form textarea{
+    width:100%; font-family:'EB Garamond', serif; font-size:1.05rem; padding:0.7rem 0.8rem;
+    border:1px solid var(--ink-soft); background:var(--paper); color:var(--ink);
+  }
+  .rsvp-form textarea{ resize:vertical; min-height:90px; }
+  .rsvp-note{ font-size:0.85rem; color:var(--ink-soft); margin-top:0.6rem; }
+  #rsvp-feedback{ margin-top:1rem; font-weight:500; }
+
+  /* ---------- GALLERY ---------- */
+  .gallery{ margin-top:2rem; display:grid; grid-template-columns:repeat(3, 1fr); gap:0.9rem; }
+  @media (max-width:640px){ .gallery{ grid-template-columns:repeat(2, 1fr); } }
+  .gallery .frame{
+    aspect-ratio:1; background:var(--paper); border:1px solid var(--kraft-deep);
+    display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
+    font-size:0.8rem; text-align:center; padding:0.5rem; position:relative; overflow:hidden;
+  }
+  .gallery .frame::after{ content:""; position:absolute; inset:6px; border:1px dashed var(--gold); pointer-events:none; }
+
+  /* ---------- REGISTRY ---------- */
+  .registry-card{ margin-top:2rem; background:var(--paper); border:1px solid var(--kraft-deep); padding:2rem; text-align:center; }
+  .registry-card p{ color:var(--ink-soft); }
+
+  footer{ text-align:center; padding:3rem 1.5rem 4rem; color:var(--ink-soft); font-size:0.95rem; }
+  footer .script{ font-size:1.4rem; }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="frame-border"></div>
+
+  <svg class="corner tl" viewBox="0 0 150 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#6E7A52" stroke-width="2.2" stroke-linecap="round">
+      <path d="M20,220 C30,150 45,90 70,20"/>
+      <path d="M25,190 q20,-10 25,-30"/>
+      <path d="M35,150 q22,-6 30,-24"/>
+      <path d="M45,110 q18,-8 22,-24"/>
+      <path d="M55,70 q14,-10 16,-22"/>
+    </g>
+    <g fill="none" stroke="#9C7A32" stroke-width="1.6" stroke-linecap="round">
+      <path d="M15,215 C22,145 40,85 68,18"/>
+    </g>
+    <circle cx="20" cy="205" r="10" fill="none" stroke="#A9673A" stroke-width="2"/>
+    <path d="M10,205 q10,15 20,0 q10,15 -10,20 q-20,-5 -10,-20" fill="#A9673A" opacity="0.55"/>
+  </svg>
+
+  <svg class="corner br" viewBox="0 0 150 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#6E7A52" stroke-width="2.2" stroke-linecap="round">
+      <path d="M20,220 C30,150 45,90 70,20"/>
+      <path d="M25,190 q20,-10 25,-30"/>
+      <path d="M35,150 q22,-6 30,-24"/>
+    </g>
+    <g fill="none" stroke="#9C7A32" stroke-width="1.6" stroke-linecap="round">
+      <path d="M15,215 C22,145 40,85 68,18"/>
+    </g>
+    <circle cx="20" cy="205" r="10" fill="none" stroke="#A9673A" stroke-width="2"/>
+  </svg>
+
+  <div class="hero-content">
+    <span class="eyebrow script-title">Save the Date</span>
+    <div class="heart-divider"><span class="line"></span><span class="heart">&#10084;</span><span class="line"></span></div>
+
+    <div class="names-block">
+      <h1 class="names caps">Edoardo</h1>
+      <div class="e-connector">
+        <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
+        <span>e</span>
+        <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
+      </div>
+      <h1 class="names caps">Lucia</h1>
+    </div>
+
+    <p class="when caps">2 Ottobre 2026 &nbsp;·&nbsp; Ore 11:00</p>
+    <p class="where caps">Chiesa di San Michele<br>(Oreno di Vimercate)</p>
+  </div>
+
+  <div class="photo-frame">
+    <div class="placeholder-text">La vostra foto qui<br><span style="font-size:0.8rem;">(sostituisci con &lt;img&gt;, vedi commento nel codice)</span></div>
+  </div>
+  <div class="hero-spacer"></div>
+</header>
+
+<!-- ===================== COUNTDOWN ===================== -->
+<section class="countdown-wrap" id="countdown-section">
+  <span class="eyebrow">manca ancora un po'...</span>
+  <h2>Il conto alla rovescia</h2>
+  <div class="countdown" id="countdown" role="timer" aria-live="polite">
+    <div class="unit"><span class="num" id="cd-days">--</span><span class="label">Giorni</span></div>
+    <div class="unit"><span class="num" id="cd-hours">--</span><span class="label">Ore</span></div>
+    <div class="unit"><span class="num" id="cd-mins">--</span><span class="label">Minuti</span></div>
+    <div class="unit"><span class="num" id="cd-secs">--</span><span class="label">Secondi</span></div>
+  </div>
+  <svg class="mountains-divider" viewBox="0 0 340 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,50 L40,20 L70,40 L110,10 L150,35 L190,15 L230,42 L270,22 L310,45 L340,30" fill="none" stroke="#9C7A32" stroke-width="1.5"/>
+  </svg>
+</section>
+
+<!-- ===================== LOCATION ===================== -->
+<section id="dove">
+  <span class="eyebrow">dove trovarci</span>
+  <h2>La location</h2>
+  <div class="location-grid">
+    <div class="loc-card">
+      <h3>Cerimonia</h3>
+      <p>Chiesa di San Michele<br>Oreno di Vimercate (MB)<br>Ore 11:00</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Chiesa+di+San+Michele+Oreno+di+Vimercate" target="_blank" rel="noopener">Apri in Google Maps</a>
+    </div>
+    <div class="loc-card">
+      <h3>Ricevimento</h3>
+      <p>Cascina Lodovica<br>Oreno di Vimercate (MB)<br>A seguire</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cascina+Lodovica+Oreno+di+Vimercate" target="_blank" rel="noopener">Apri in Google Maps</a>
+    </div>
+  </div>
+  <svg class="mountains-divider" viewBox="0 0 340 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,50 L40,20 L70,40 L110,10 L150,35 L190,15 L230,42 L270,22 L310,45 L340,30" fill="none" stroke="#6E7A52" stroke-width="1.5"/>
+  </svg>
+</section>
+
+<!-- ===================== PROGRAM ===================== -->
+<section id="programma">
+  <span class="eyebrow">come si svolgerà</span>
+  <h2>Il programma della giornata</h2>
+  <div class="timeline">
+    <div class="item"><span class="time">11:00</span><span class="what">Cerimonia presso la Chiesa di San Michele</span></div>
+    <div class="item"><span class="time">12:30</span><span class="what">Trasferimento e aperitivo alla Cascina Lodovica</span></div>
+    <div class="item"><span class="time">14:00</span><span class="what">Pranzo e brindisi</span></div>
+    <div class="item"><span class="time">17:00</span><span class="what">Taglio della torta e festa a seguire</span></div>
+  </div>
+</section>
+
+<!-- ===================== RSVP ===================== -->
+<section id="rsvp">
+  <span class="eyebrow">contiamo su di voi</span>
+  <h2>Conferma la tua presenza</h2>
+  <p style="color:var(--ink-soft); margin-top:0.6rem;">Vi chiediamo di rispondere entro il <strong>1 settembre 2026</strong>.</p>
+
+  <form class="rsvp-form" id="rsvp-form">
+    <div>
+      <label for="nome">Nome e cognome</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+    <div>
+      <label for="presenza">Sarai presente?</label>
+      <select id="presenza" name="presenza" required>
+        <option value="">Seleziona...</option>
+        <option value="si">Sì, con gioia!</option>
+        <option value="no">Purtroppo no</option>
+      </select>
+    </div>
+    <div>
+      <label for="ospiti">Numero di persone (te incluso/a)</label>
+      <input type="number" id="ospiti" name="ospiti" min="1" max="10" value="1">
+    </div>
+    <div class="row-2">
+      <div>
+        <label for="bambini-under3">Bambini sotto i 3 anni</label>
+        <input type="number" id="bambini-under3" name="bambini_under3" min="0" max="10" value="0">
+      </div>
+      <div>
+        <label for="bambini-over5">Bambini sopra i 5 anni</label>
+        <input type="number" id="bambini-over5" name="bambini_over5" min="0" max="10" value="0">
+      </div>
+    </div>
+    <div>
+      <label for="allergie">Allergie o intolleranze alimentari</label>
+      <textarea id="allergie" name="allergie" placeholder="Scrivi qui se ce ne sono..."></textarea>
+    </div>
+    <button type="submit" class="btn primary">Invia la conferma</button>
+    <p id="rsvp-feedback" role="status"></p>
+  </form>
+  <p class="rsvp-note">
+    Le risposte vengono inviate al vostro foglio Google Sheets tramite Google Apps Script.
+  </p>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section id="galleria">
+  <span class="eyebrow">i nostri momenti</span>
+  <h2>Galleria foto</h2>
+  <div class="gallery">
+    <div class="frame">foto-1.jpg</div>
+    <div class="frame">foto-2.jpg</div>
+    <div class="frame">foto-3.jpg</div>
+    <div class="frame">foto-4.jpg</div>
+    <div class="frame">foto-5.jpg</div>
+    <div class="frame">foto-6.jpg</div>
+  </div>
+  <p class="rsvp-note">Sostituisci ogni riquadro con un tag &lt;img&gt; che punta alle vostre foto reali.</p>
+</section>
+
+<!-- ===================== REGISTRY ===================== -->
+<section id="lista-nozze">
+  <span class="eyebrow">se vuoi farci un pensiero</span>
+  <h2>Lista nozze</h2>
+  <div class="registry-card">
+    <p>La vostra presenza è il regalo più grande. Se però desiderate contribuire al nostro viaggio di nozze,
+    trovate qui le coordinate:</p>
+    <p><strong>IBAN:</strong> vi verrà comunicato a breve<br>
+    <strong>Intestato a:</strong> Edoardo Cantoni</p>
+  </div>
+</section>
+
+<footer>
+  <span class="script">Edoardo &amp; Lucia</span><br>
+  2 Ottobre 2026
+</footer>
+
+<script>
+  // ---------- Countdown ----------
+  const weddingDate = new Date("2026-10-02T11:00:00");
+  function updateCountdown(){
+    const now = new Date();
+    let diff = weddingDate - now;
+    if (diff < 0) diff = 0;
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-days').textContent = d;
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ---------- RSVP -> Google Sheets via Google Apps Script Web App ----------
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6Ed7bJnc-0gF1z-Sj6-1TGTdDmffejFXl6I9GnGbSRPZqN6Cp7izTM1PJ-LkQMmg2uA/exec";
+
+  const form = document.getElementById('rsvp-form');
+  const feedback = document.getElementById('rsvp-feedback');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const payload = {
+      nome: document.getElementById('nome').value,
+      presenza: document.getElementById('presenza').value,
+      ospiti: document.getElementById('ospiti').value,
+      bambini_under3: document.getElementById('bambini-under3').value,
+      bambini_over5: document.getElementById('bambini-over5').value,
+      allergie: document.getElementById('allergie').value
+    };
+
+    if (SCRIPT_URL.indexOf("INCOLLA_QUI") !== -1){
+      feedback.textContent = "Modulo non ancora collegato al foglio Google — segui le istruzioni per attivarlo.";
+      feedback.style.color = "#A9673A";
+      return;
+    }
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(){
+      feedback.textContent = payload.presenza === 'si'
+        ? "Grazie! Non vediamo l'ora di festeggiare con te."
+        : "Grazie per averci risposto, ci mancherai!";
+      feedback.style.color = "#6E7A52";
+      form.reset();
+    }).catch(function(){
+      feedback.textContent = "Si è verificato un problema nell'invio. Riprova tra poco.";
+      feedback.style.color = "#A9673A";
+    });
+  });
+</script>
+
+</body>
+</html>
