@@ -7,7 +7,7 @@
 <meta name="description" content="Il sito del nostro matrimonio: data, location, programma e conferma presenza.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:wght@500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
     --kraft:#E4D4B0;
@@ -45,125 +45,97 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  h1,h2,h3{
-    font-family:'Playfair Display', serif;
-    font-weight:600;
-    margin:0;
-    color:var(--ink);
-  }
+  h1,h2,h3{ font-family:'Playfair Display', serif; font-weight:700; margin:0; color:var(--ink); }
 
   a{color:var(--rust);}
   a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
-    outline:3px solid var(--sage);
-    outline-offset:3px;
+    outline:3px solid var(--sage); outline-offset:3px;
   }
 
   .script{ font-family:'Alex Brush', cursive; color:var(--ink); line-height:1; }
   .eyebrow{
-    font-family:'Alex Brush', cursive;
-    font-size:2.1rem;
-    color:var(--rust);
-    display:block;
-    margin-bottom:0.1rem;
+    font-family:'Alex Brush', cursive; font-size:2.1rem; color:var(--rust);
+    display:block; margin-bottom:0.1rem;
   }
   .caps{ text-transform:uppercase; letter-spacing:0.18em; }
 
-  section{
-    max-width:var(--max-w);
-    margin:0 auto;
-    padding:4.5rem 1.5rem;
-    position:relative;
-  }
+  section{ max-width:var(--max-w); margin:0 auto; padding:4.5rem 1.5rem; position:relative; }
 
-  /* ---------- mountain motif: used in hero background and as section divider ---------- */
-  .mountains-divider{
-    width:100%;
-    max-width:340px;
-    margin:1.4rem auto 0;
-    display:block;
-    opacity:0.9;
-  }
+  .mountains-divider{ width:100%; max-width:340px; margin:1.4rem auto 0; display:block; opacity:0.9; }
 
   .heart-divider{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:0.8rem;
-    margin:0.9rem 0;
-    color:var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:0.8rem;
+    margin:0.9rem 0; color:var(--gold);
   }
   .heart-divider .line{ height:1px; width:70px; background:var(--gold); }
   .heart-divider .heart{ font-size:1.1rem; }
 
-  /* ---------- corner botanicals ---------- */
   .corner{ position:absolute; width:150px; height:230px; pointer-events:none; opacity:0.92; z-index:2; }
   .corner.tl{ top:0; left:0; }
   .corner.br{ bottom:0; right:0; transform:rotate(180deg); }
 
-  .frame-border{ position:absolute; inset:20px; border:1px solid var(--gold); pointer-events:none; z-index:2; }
+  .frame-border{ position:absolute; inset:20px; border:1px solid var(--gold); pointer-events:none; z-index:3; }
+  .frame-border::before{
+    content:""; position:absolute; inset:6px; border:1px solid var(--gold); opacity:0.5;
+  }
 
   /* ---------- HERO ---------- */
   .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
-    text-align:center;
-    padding:3.4rem 1.8rem 3rem;
-    position:relative;
-    overflow:hidden;
-    background:
-      linear-gradient(to bottom, rgba(228,212,176,0.0) 0%, rgba(228,212,176,0.55) 62%, var(--kraft) 100%),
-      linear-gradient(to bottom, #E9DEC2 0%, #DCC9A0 55%, var(--kraft) 100%);
+    min-height:100vh; display:flex; flex-direction:column; align-items:center;
+    justify-content:flex-start; text-align:center; padding:3rem 1.6rem 0;
+    position:relative; overflow:hidden;
+    background: linear-gradient(to bottom, #EBE0C4 0%, #DFCC A4 50%, var(--kraft) 100%);
+    background: linear-gradient(to bottom, #EBE0C4 0%, #DFCCA4 50%, var(--kraft) 100%);
   }
-  .hero-mountains-bg{
-    position:absolute;
-    bottom:0; left:0; width:100%;
-    z-index:0;
-    opacity:0.55;
-  }
-  .hero-content{ position:relative; z-index:3; }
-  .hero .script-title{ font-size:clamp(2.7rem, 9vw, 4.4rem); }
-  .hero .names{
-    font-size:clamp(2.3rem, 7vw, 3.7rem);
-    letter-spacing:0.06em;
-    line-height:1.22;
-  }
-  .hero .e-connector{
-    font-family:'Alex Brush', cursive;
-    color:var(--sage-deep);
-    font-size:1.7rem;
-    display:block;
-    margin:0.15rem 0;
-  }
-  .hero .when{ margin-top:1.5rem; font-family:'Playfair Display', serif; font-size:1.18rem; letter-spacing:0.14em; }
-  .hero .where{ margin-top:0.35rem; font-size:1.02rem; color:var(--ink-soft); letter-spacing:0.1em; }
+  .hero-content{ position:relative; z-index:1; }
+  .hero .script-title{ font-size:clamp(2.8rem, 10vw, 4.6rem); }
 
-  /* couple photo frame on the first page */
+  .names-block{ margin-top:0.6rem; }
+  .hero .names{
+    font-weight:800;
+    font-size:clamp(2.1rem, 6.2vw, 3.3rem);
+    letter-spacing:0.14em;
+    line-height:1.3;
+  }
+  .e-connector{
+    display:flex; align-items:center; justify-content:center; gap:0.7rem;
+    margin:0.3rem 0;
+  }
+  .e-connector svg{ width:34px; height:16px; opacity:0.85; }
+  .e-connector span{
+    font-family:'Playfair Display', serif; font-style:italic; font-weight:500;
+    font-size:1.3rem; color:var(--sage-deep);
+  }
+
+  .hero .when{ margin-top:1.5rem; font-family:'Playfair Display', serif; font-weight:600; font-size:1.15rem; letter-spacing:0.16em; }
+  .hero .where{ margin-top:0.4rem; font-size:1rem; color:var(--ink-soft); letter-spacing:0.12em; }
+
+  /* full-bleed photo band, fading softly into the paper like an old postcard */
   .photo-frame{
     position:relative;
-    z-index:3;
-    margin:2.2rem auto 0;
-    width:min(78vw, 320px);
-    aspect-ratio:3/4;
-    background:var(--paper);
-    border:1px solid var(--gold);
-    box-shadow:0 0 0 8px var(--kraft), 0 6px 18px rgba(59,46,32,0.25);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:1rem;
+    margin-top:2.2rem;
+    width:100%;
+    max-width:640px;
+    aspect-ratio:3/4.4;
     overflow:hidden;
+    background:linear-gradient(160deg, #cfc0a0, #b9a97f);
+  }
+  .photo-frame::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:38%;
+    background:linear-gradient(to bottom, var(--kraft) 0%, rgba(228,212,176,0) 100%);
+    z-index:2;
   }
   .photo-frame .placeholder-text{
-    color:var(--ink-soft);
-    font-size:0.95rem;
-    line-height:1.5;
+    position:absolute; inset:0; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:2rem;
+    color:#4a3b28; font-size:0.95rem; line-height:1.5;
   }
-  /* Sostituisci il div .photo-frame con:
-     <div class="photo-frame"><img src="foto-copertina.jpg" alt="Edoardo e Lucia" style="width:100%;height:100%;object-fit:cover;"></div> */
+  /* Sostituisci .placeholder-text con:
+     <img src="foto-copertina.jpg" alt="Edoardo e Lucia" style="width:100%;height:100%;object-fit:cover;"> */
+
+  .hero-spacer{ height:2.5rem; }
 
   /* ---------- COUNTDOWN ---------- */
   .countdown-wrap{ text-align:center; }
@@ -175,7 +147,7 @@
   /* ---------- LOCATION ---------- */
   .location-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2rem; }
   @media (max-width:640px){ .location-grid{ grid-template-columns:1fr; } }
-  .loc-card{ background:var(--paper); border:1px solid var(--kraft-deep); padding:1.8rem; position:relative; }
+  .loc-card{ background:var(--paper); border:1px solid var(--kraft-deep); padding:1.8rem; }
   .loc-card h3{ font-size:1.3rem; margin-bottom:0.5rem; }
   .loc-card p{ color:var(--ink-soft); margin:0.2rem 0 1rem; }
   .btn{
@@ -201,6 +173,8 @@
 
   /* ---------- RSVP ---------- */
   .rsvp-form{ margin-top:2rem; display:grid; gap:1.1rem; }
+  .rsvp-form .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; }
+  @media (max-width:520px){ .rsvp-form .row-2{ grid-template-columns:1fr; } }
   .rsvp-form label{ display:block; font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:0.35rem; }
   .rsvp-form input, .rsvp-form select, .rsvp-form textarea{
     width:100%; font-family:'EB Garamond', serif; font-size:1.05rem; padding:0.7rem 0.8rem;
@@ -234,12 +208,6 @@
 <header class="hero">
   <div class="frame-border"></div>
 
-  <!-- misty mountain range, echoing the backdrop in the reference photo -->
-  <svg class="hero-mountains-bg" viewBox="0 0 1000 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M0,260 L0,150 L120,60 L230,140 L320,40 L430,150 L520,90 L640,170 L730,70 L850,160 L1000,90 L1000,260 Z" fill="#8FA1A6" opacity="0.35"/>
-    <path d="M0,260 L0,190 L150,120 L260,180 L400,110 L540,190 L660,130 L800,200 L1000,150 L1000,260 Z" fill="#657679" opacity="0.35"/>
-  </svg>
-
   <svg class="corner tl" viewBox="0 0 150 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <g fill="none" stroke="#6E7A52" stroke-width="2.2" stroke-linecap="round">
       <path d="M20,220 C30,150 45,90 70,20"/>
@@ -271,17 +239,24 @@
     <span class="eyebrow script-title">Save the Date</span>
     <div class="heart-divider"><span class="line"></span><span class="heart">&#10084;</span><span class="line"></span></div>
 
-    <h1 class="names caps">Edoardo</h1>
-    <span class="e-connector">e</span>
-    <h1 class="names caps">Lucia</h1>
+    <div class="names-block">
+      <h1 class="names caps">Edoardo</h1>
+      <div class="e-connector">
+        <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
+        <span>e</span>
+        <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
+      </div>
+      <h1 class="names caps">Lucia</h1>
+    </div>
 
     <p class="when caps">2 Ottobre 2026 &nbsp;·&nbsp; Ore 11:00</p>
-    <p class="where caps">Chiesa di San Michele, Oreno di Vimercate</p>
-
-    <div class="photo-frame">
-      <div class="placeholder-text">La vostra foto qui<br><span style="font-size:0.8rem;">(sostituisci con &lt;img&gt;, vedi commento nel codice)</span></div>
-    </div>
+    <p class="where caps">Chiesa di San Michele<br>(Oreno di Vimercate)</p>
   </div>
+
+  <div class="photo-frame">
+    <div class="placeholder-text">La vostra foto qui<br><span style="font-size:0.8rem;">(sostituisci con &lt;img&gt;, vedi commento nel codice)</span></div>
+  </div>
+  <div class="hero-spacer"></div>
 </header>
 
 <!-- ===================== COUNTDOWN ===================== -->
@@ -355,6 +330,16 @@
       <label for="ospiti">Numero di persone (te incluso/a)</label>
       <input type="number" id="ospiti" name="ospiti" min="1" max="10" value="1">
     </div>
+    <div class="row-2">
+      <div>
+        <label for="bambini-under3">Bambini sotto i 3 anni</label>
+        <input type="number" id="bambini-under3" name="bambini_under3" min="0" max="10" value="0">
+      </div>
+      <div>
+        <label for="bambini-over5">Bambini sopra i 5 anni</label>
+        <input type="number" id="bambini-over5" name="bambini_over5" min="0" max="10" value="0">
+      </div>
+    </div>
     <div>
       <label for="allergie">Allergie o intolleranze alimentari</label>
       <textarea id="allergie" name="allergie" placeholder="Scrivi qui se ce ne sono..."></textarea>
@@ -364,8 +349,6 @@
   </form>
   <p class="rsvp-note">
     Le risposte vengono inviate al vostro foglio Google Sheets tramite Google Apps Script.
-    Segui le istruzioni ricevute in chat per collegare il modulo al foglio (basta incollare l'URL del tuo
-    Web App qui sotto, nella costante <code>SCRIPT_URL</code>).
   </p>
 </section>
 
@@ -391,8 +374,8 @@
   <div class="registry-card">
     <p>La vostra presenza è il regalo più grande. Se però desiderate contribuire al nostro viaggio di nozze,
     trovate qui le coordinate:</p>
-    <p><strong>IBAN:</strong> IT00 X000 0000 0000 0000 0000 000<br>
-    <strong>Intestato a:</strong> Edoardo Rossi</p>
+    <p><strong>IBAN:</strong> vi verrà comunicato a breve<br>
+    <strong>Intestato a:</strong> Edoardo Cantoni</p>
   </div>
 </section>
 
@@ -421,9 +404,6 @@
   setInterval(updateCountdown, 1000);
 
   // ---------- RSVP -> Google Sheets via Google Apps Script Web App ----------
-  // 1. Apri il tuo Google Sheet -> Estensioni -> Apps Script
-  // 2. Incolla lo script che trovi nel messaggio della chat e pubblicalo come Web App
-  // 3. Copia l'URL che ti viene dato e incollalo qui sotto al posto di "INCOLLA_QUI_URL_APPS_SCRIPT"
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6Ed7bJnc-0gF1z-Sj6-1TGTdDmffejFXl6I9GnGbSRPZqN6Cp7izTM1PJ-LkQMmg2uA/exec";
 
   const form = document.getElementById('rsvp-form');
@@ -434,6 +414,8 @@
       nome: document.getElementById('nome').value,
       presenza: document.getElementById('presenza').value,
       ospiti: document.getElementById('ospiti').value,
+      bambini_under3: document.getElementById('bambini-under3').value,
+      bambini_over5: document.getElementById('bambini-over5').value,
       allergie: document.getElementById('allergie').value
     };
 
@@ -463,3 +445,4 @@
 
 </body>
 </html>
+
