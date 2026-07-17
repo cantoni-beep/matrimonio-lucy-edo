@@ -81,20 +81,50 @@
 
   /* ---------- HERO ---------- */
   .hero{
-    display:flex; flex-direction:column; align-items:center;
-    justify-content:center; text-align:center; padding:3rem 1.2rem;
     position:relative;
-  }
-  .hero-photo-wrap{
-    width:100%;
-    max-width:640px;
-    aspect-ratio:1060/1484;
+    min-height:82vh;
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(59,46,32,0.28);
-    border:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+    box-shadow:0 10px 30px rgba(59,46,32,0.22);
   }
-  .hero-photo-wrap img{
-    width:100%; height:100%; object-fit:cover; display:block;
+  .hero-illustration{
+    position:absolute; inset:0; width:100%; height:100%;
+    z-index:0; display:block;
+    object-fit:cover;
+    object-position:center top;
+  }
+  .hero-frame{
+    position:absolute; inset:16px; border:1px solid rgba(156,122,50,0.55);
+    pointer-events:none; z-index:2;
+  }
+  .hero-content{
+    position:absolute; top:9%; left:0; right:0;
+    z-index:2;
+    padding:0 1.5rem;
+    text-align:center;
+  }
+  .hero .names{
+    font-weight:800;
+    font-size:clamp(2.2rem, 6.4vw, 3.5rem);
+    letter-spacing:0.13em;
+    line-height:1.25;
+    color:var(--ink);
+    text-shadow:0 2px 14px rgba(241,230,201,0.85), 0 0 3px rgba(241,230,201,0.6);
+  }
+  .hero .e-connector{
+    display:flex; align-items:center; justify-content:center; gap:0.6rem; margin:0.25rem 0;
+  }
+  .hero .e-connector svg{ width:30px; height:14px; opacity:0.85; }
+  .hero .e-connector span{
+    font-family:'Playfair Display', serif; font-style:italic; font-weight:500;
+    font-size:1.2rem; color:var(--sage-deep);
+  }
+  .hero .when{
+    margin-top:1rem;
+    font-family:'Playfair Display', serif; font-weight:600;
+    font-size:1.05rem; letter-spacing:0.16em;
+    color:var(--ink);
+    text-shadow:0 2px 10px rgba(241,230,201,0.8);
   }
 
   /* ---------- COUNTDOWN ---------- */
@@ -166,8 +196,19 @@
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
-  <div class="hero-photo-wrap">
-    <img src="foto-copertina.jpg" alt="Lucia e Edoardo, Save the Date, 2 ottobre 2026, Chiesa di San Michele, Oreno di Vimercate">
+  <img class="hero-illustration" src="foto-copertina.jpg" alt="Lucia e Edoardo a cavallo verso le montagne">
+
+  <div class="hero-frame"></div>
+
+  <div class="hero-content">
+    <h1 class="names caps">Lucia</h1>
+    <div class="e-connector">
+      <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
+      <span>e</span>
+      <svg viewBox="0 0 34 16"><path d="M2,14 Q10,2 17,10 Q24,2 32,14" fill="none" stroke="#6E7A52" stroke-width="1.5"/></svg>
+    </div>
+    <h1 class="names caps">Edoardo</h1>
+    <p class="when caps">2 Ottobre 2026</p>
   </div>
 </header>
 
@@ -284,8 +325,8 @@
   <span class="eyebrow">se vuoi farci un pensiero</span>
   <h2>Lista nozze</h2>
   <div class="registry-card">
-    <p>La vostra presenza è il regalo più grande. Se però desiderate contribuire al nostro viaggio di nozze,
-    trovate qui le coordinate:</p>
+    <p>Venite a fare festa con noi! Se poi volete evitare che la nostra prima cena da sposati sia a base di
+    tonno e crackers, ecco come aiutarci:</p>
     <p><strong>IBAN:</strong> IT82U0306909441100000010010<br>
     <strong>Intestato a:</strong> Lucia Telmon</p>
   </div>
