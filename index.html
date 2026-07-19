@@ -153,6 +153,7 @@
     font-size:0.8rem; text-align:center; padding:0.5rem; position:relative; overflow:hidden;
   }
   .gallery .frame::after{ content:""; position:absolute; inset:6px; border:1px dashed var(--gold); pointer-events:none; }
+  .gallery .frame img{ width:100%; height:100%; object-fit:cover; display:block; }
 
   /* ---------- REGISTRY ---------- */
   .registry-card{ margin-top:2rem; background:var(--paper); border:1px solid var(--kraft-deep); padding:2rem; text-align:center; }
@@ -269,14 +270,14 @@
   <span class="eyebrow">i nostri momenti</span>
   <h2>Galleria foto</h2>
   <div class="gallery">
-    <div class="frame">foto-1.jpg</div>
-    <div class="frame">foto-2.jpg</div>
-    <div class="frame">foto-3.jpg</div>
-    <div class="frame">foto-4.jpg</div>
-    <div class="frame">foto-5.jpg</div>
-    <div class="frame">foto-6.jpg</div>
+    <div class="frame"><img src="foto-1.jpg" alt="Un nostro momento"></div>
+    <div class="frame"><img src="foto-2.jpg" alt="Un nostro momento"></div>
+    <div class="frame"><img src="foto-3.jpg" alt="Un nostro momento"></div>
+    <div class="frame"><img src="foto-4.jpg" alt="Un nostro momento"></div>
+    <div class="frame"><img src="foto-5.jpg" alt="Un nostro momento"></div>
+    <div class="frame"><img src="foto-6.jpg" alt="Un nostro momento"></div>
   </div>
-  <p class="rsvp-note">Sostituisci ogni riquadro con un tag &lt;img&gt; che punta alle vostre foto reali.</p>
+  <p class="rsvp-note">Carica su GitHub le tue foto con questi nomi esatti (foto-1.jpg, foto-2.jpg... foto-6.jpg) nella stessa cartella di index.html: appariranno qui automaticamente.</p>
 </section>
 
 <!-- ===================== REGISTRY ===================== -->
